@@ -37,10 +37,6 @@ fs.readdir(process.cwd(), (err, files) => {
         stdin.resume()
         stdin.setEncoding('utf8')
     }  
-    
-    console.log(
-        'test'
-    )
 
     file(0)
 })
