@@ -36,7 +36,11 @@ fs.readdir(process.cwd(), (err, files) => {
         stdout.write(`Enter your choice: `.cyan)
         stdin.resume()
         stdin.setEncoding('utf8')
-    }    
+    }  
+    
+    console.log(
+        'test'
+    )
 
     file(0)
 })
