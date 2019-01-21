@@ -36,7 +36,26 @@ fs.readdir(process.cwd(), (err, files) => {
         stdout.write(`Enter your choice: `.cyan)
         stdin.resume()
         stdin.setEncoding('utf8')
+
+        stdin.on('data', option)
     }  
+
+    function option(data) {
+        console.log(data)
+        let filename = files[Number(data)]
+        if (!filename) {
+            stdout.write('Enter your choice again: '.cyan)
+        } else {
+            stdin.pause()
+
+            fs.readFile(`${__dirname}/${filename}`, 'utf8', (err, data) => {
+                if (err) return console.log(err) 
+
+                console.log('')
+                console.log(data)
+            })
+        }
+    }
 
     file(0)
 })
